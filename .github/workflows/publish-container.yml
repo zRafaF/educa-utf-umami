@@ -19,7 +19,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build Docker image
-        run: docker docker build -t educa_utf_umami --build-arg DATABASE_TYPE=postgresql --build-arg BASE_PATH=/umami . # Pay attention to the BASE_PATH
+        run: docker build -t educa_utf_umami --build-arg DATABASE_TYPE=postgresql --build-arg BASE_PATH=/umami . # Pay attention to the BASE_PATH
       - name: Add tags to image
         run: |
           docker tag educa_utf_umami zrafaf/educa_utf_umami:${{ github.event.pull_request.title }}
